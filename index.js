@@ -17,27 +17,27 @@ app.use(express.static(path.join(__dirName, 'public')));
 app.set('views', './views');
 app.set('view engine', 'pug');
 // Custom middleware to check working hours (Monday to Friday, 9 AM - 5 PM)
-// function checkWorkingHours(req, res, next) {
-//   let currentDate = new Date();
-//   let currentDay = currentDate.getDay();
-//   let currentHour = currentDate.getHours();
+function checkWorkingHours(req, res, next) {
+  let currentDate = new Date();
+  let currentDay = currentDate.getDay();
+  let currentHour = currentDate.getHours();
 
-//   if (
-//     currentDay >= 1 &&
-//     currentDay <= 5 &&
-//     currentHour >= 9 &&
-//     currentHour < 17
-//   ) {
-//     return next(); // If within working hours, proceed to the next middleware
-//   } else {
-//     res.send(
-//       'Our services are only available during working hours (Monday to Friday, 9 AM to 5 PM).'
-//     );
-//   }
-// }
+  if (
+    currentDay >= 1 &&
+    currentDay <= 5 &&
+    currentHour >= 9 &&
+    currentHour < 17
+  ) {
+    return next(); // If within working hours, proceed to the next middleware
+  } else {
+    res.send(
+      'Our services are only available during working hours (Monday to Friday, 9 AM to 5 PM).'
+    );
+  }
+}
 
 // Use the middleware globally
-// app.use(checkWorkingHours);
+app.use(checkWorkingHours);
 
 // Define routes for the pages
 app.get('/', (req, res) => {
