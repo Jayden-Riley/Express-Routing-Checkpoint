@@ -1,0 +1,28 @@
+
+doctype html
+html(lang="en")
+
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title= pageTitle
+    
+    
+    link(rel="stylesheet", href="./output.css")
+
+  body(class="bg-[#403f44]")
+    main(class="") 
+        header(class="flex px-6 mt-3 justify-between ")
+            img(src="https://th.bing.com/th/id/OIP.sWwnoLpfX9Iz8g4-yidRjQHaHZ?rs=1&pid=ImgDetMain", alt="" class="w-12 h-12  rounded-full")
+            nav(class="font-semibold mt-2")
+                a(href="/", class="text-white mx-2") Home
+                a(href="/services", class="text-white mx-2") Our Services
+                a(href="/contact", class="text-white mx-2") Contact Us 
+        
+
+
+    
+    block content
+
+    footer(class="bg-gray-800 p-4 text-white text-center")
+      p &copy; 2024 Your Company Name. All rights reserved.
